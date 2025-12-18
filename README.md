@@ -1,200 +1,41 @@
-# setup-node
+Licencia Apache
+versión 2.0, enero de 2004
+http://www.apache.org/licenses/
 
-<p align="left">
-  <a href="https://github.com/actions/setup-node/actions?query=workflow%3Abuild-test"><img alt="build-test status" src="https://github.com/actions/setup-node/workflows/build-test/badge.svg"></a> <a href="https://github.com/actions/setup-node/actions?query=workflow%3Aversions"><img alt="versions status" src="https://github.com/actions/setup-node/workflows/versions/badge.svg"></a> <a href="https://github.com/actions/setup-node/actions?query=workflow%3Aproxy"><img alt="proxy status" src="https://github.com/actions/setup-node/workflows/proxy/badge.svg"></a> 
-</p>
+TÉRMINOS Y CONDICIONES DE USO, REPRODUCCIÓN Y DISTRIBUCIÓN
 
-This action sets by node environment for use in actions by:
+1. Definiciones.
+"Licencia" significará los términos y condiciones de uso, reproducción y distribución según se definen en las Secciones 1 a 9 de este documento.
 
-- optionally downloading and caching a version of node - npm by version spec and add to PATH
-- registering problem matchers for error output
-- configuring authentication for GPR or npm
+"Licenciante" significará el propietario de los derechos de autor o la entidad autorizada por el propietario de los derechos de autor que otorga la Licencia.
 
-# v2
+"Persona Jurídica" significa la unión de la entidad actuante y todas las demás entidades que controlan, son controladas por o están bajo control común con dicha entidad. A los efectos de esta definición, "control" significa (i) la facultad, directa o indirecta, de dirigir o gestionar dicha entidad, ya sea por contrato o de otro modo, o (ii) la propiedad del cincuenta por ciento (50%) o más de las acciones en circulación, o (iii) la titularidad efectiva de dicha entidad.
 
-This release adds reliability for pulling node distributions from a cache of node releases.
+"Usted" (o "Su") significará una persona física o entidad legal que ejerza los permisos otorgados por esta Licencia.
 
-```yaml
-steps:
-- uses: actions/checkout@v2
-- uses: actions/setup-node@v2
-  with:
-    node-version: '12'
-```
+Por formato "fuente" se entenderá el formato preferido para realizar modificaciones, incluidos, entre otros, el código fuente del software, la fuente de la documentación y los archivos de configuración.
 
-It will first check the local cache for a semver match.  The hosted images have been updated with the latest of each LTS from v8, v10, v12, and v14. `self-hosted` machines will benefit from the cache as well only downloading once.  It will pull LTS versions from `main` branch of [node-versions](https://github.com/actions/node-versions/blob/main/versions-manifest.json) repository and on miss or failure, it will fall back to the previous behavior of download directly from [node dist](https://nodejs.org/dist/).
+Por "formato objeto" se entenderá cualquier forma resultante de la transformación mecánica o traducción de un forma fuente, incluidos, entre otros, el código objeto compilado, la documentación generada y las conversiones a otros tipos de medios.
 
-The `node-version` input is optional.  If not supplied, node which is in your PATH will be used.  However, this action will still register problem matchers and support auth features.  So setting up the node environment is still a valid scenario without downloading and caching versions.
+"Obra" significará la obra de autoría, ya sea en forma de Fuente u Objeto, puesta a disposición bajo la Licencia, como lo indica un aviso de derechos de autor incluido o adjunto a la obra (se proporciona un ejemplo en el Apéndice a continuación).
 
-# Usage
+"Obras Derivadas" se refiere a cualquier obra, ya sea en formato Fuente u Objeto, basada en (o derivada de) la Obra y cuyas revisiones editoriales, anotaciones, elaboraciones u otras modificaciones representan, en su conjunto, una obra original de autoría. A los efectos de esta Licencia, las Obras Derivadas no incluyen obras que sean separables de, o que simplemente se vinculen (o vinculen por nombre) a las interfaces de, la Obra y las Obras Derivadas de esta.
 
-See [action.yml](action.yml)
+"Contribución" se refiere a cualquier obra de autoría, incluyendo la versión original de la Obra y cualquier modificación o adición a dicha Obra o Obras Derivadas de la misma, que se envíe intencionalmente al Licenciante para su inclusión en la Obra por el titular de los derechos de autor o por una persona física o jurídica autorizada para enviar en nombre del titular de los derechos de autor. A los efectos de esta definición, "enviado" se refiere a cualquier forma de comunicación electrónica, verbal o escrita enviada al Licenciante o a sus representantes, incluyendo, entre otras, la comunicación en listas de correo electrónico, sistemas de control de código fuente y sistemas de seguimiento de incidencias gestionados por el Licenciante o en su nombre con el fin de debatir y mejorar la Obra, pero excluyendo la comunicación que el titular de los derechos de autor marque de forma visible o designe por escrito como "No Contribución".
 
-Basic:
-```yaml
-steps:
-- uses: actions/checkout@v2
-- uses: actions/setup-node@v2
-  with:
-    node-version: '12'
-- run: npm install
-- run: npm test
-```
+"Colaborador" significará el Licenciante y cualquier individuo o Entidad Legal en nombre de la cual el Licenciante haya recibido una Contribución y posteriormente la haya incorporado a la Obra.
 
-Check latest version:  
-> In basic example, without `check-latest` flag, the action tries to resolve version from local cache firstly and download only if it is not found. Local cache on image is updated with a couple of weeks latency.  
-`check-latest` flag forces the action to check if the cached version is the latest one. It reduces latency significantly but it is much more likely to incur version downloading.
-```yaml
-steps:
-- uses: actions/checkout@v2
-- uses: actions/setup-node@v2
-  with:
-    node-version: '12'
-    check-latest: true
-- run: npm install
-- run: npm test
-```
+2. Concesión de Licencia de Derechos de Autor. Sujeto a los términos y condiciones de esta Licencia, cada Colaborador le otorga a Usted una licencia de derechos de autor perpetua, mundial, no exclusiva, gratuita, libre de regalías e irrevocable para reproducir, preparar Obras Derivadas, exhibir públicamente, ejecutar públicamente, sublicenciar y distribuir la Obra y dichas Obras Derivadas en formato Fuente u Objeto.
+3. Concesión de Licencia de Patente. Sujeto a los términos y condiciones de esta Licencia, cada Colaborador le otorga a Usted una licencia de patente perpetua, mundial, no exclusiva, gratuita, exenta de regalías e irrevocable (salvo lo dispuesto en esta sección) para crear, encargar la creación, usar, ofrecer la venta, vender, importar y transferir de cualquier otra forma la Obra. Dicha licencia se aplica únicamente a las reivindicaciones de patente licenciables por dicho Colaborador que sean necesariamente infringidas por su(s) Contribución(es) por sí sola(s) o por la combinación de su(s) Contribución(es) con la Obra a la que se presentó(n). Si Usted interpone un litigio de patentes contra cualquier entidad (incluida una demanda cruzada o reconvención en una demanda) alegando que la Obra o una Contribución incorporada a ella constituye una infracción directa o indirecta de patente, cualquier licencia de patente otorgada a Usted en virtud de esta Licencia para dicha Obra finalizará a partir de la fecha de presentación de dicho litigio.
+4. Redistribución. Podrá reproducir y distribuir copias de la Obra o de sus Obras Derivadas en cualquier medio, con o sin modificaciones, y en formato fuente u objeto, siempre que cumpla las siguientes condiciones:
+(a) Debe proporcionar a cualquier otro destinatario de la Obra o de las Obras Derivadas una copia de esta Licencia; y
+(b) Debe hacer que todos los archivos modificados incluyan avisos destacados que indiquen que usted modificó los archivos; y
+(c) Debe conservar, en la forma Fuente de cualquier Trabajo Derivado que distribuya, todos los avisos de derechos de autor, patentes, marcas comerciales y atribución de la forma Fuente del Trabajo, excluyendo aquellos avisos que no pertenecen a ninguna parte de los Trabajos Derivados; y
+(d) Si la Obra incluye un archivo de texto de "AVISO" como parte de su distribución, cualquier Obra Derivada que distribuya deberá incluir una copia legible de los avisos de atribución contenidos en dicho archivo, excluyendo aquellos que no pertenezcan a ninguna parte de las Obras Derivadas, en al menos uno de los siguientes lugares: en un archivo de texto de AVISO distribuido como parte de las Obras Derivadas; en el formato o la documentación fuente, si se proporciona junto con las Obras Derivadas; o en una visualización generada por las Obras Derivadas, siempre que dichos avisos de terceros aparezcan habitualmente. El contenido del archivo de AVISO es solo informativo y no modifica la Licencia. Puede añadir sus propios avisos de atribución en las Obras Derivadas que distribuya, junto con el texto del AVISO de la Obra o como apéndice, siempre que dichos avisos de atribución adicionales no puedan interpretarse como una modificación de la Licencia.
+Usted puede agregar Su propia declaración de derechos de autor a Sus modificaciones y puede proporcionar términos y condiciones de licencia adicionales o diferentes para el uso, reproducción o distribución de Sus modificaciones, o para cualquiera de dichos Trabajos Derivados en su totalidad, siempre que Su uso, reproducción y distribución del Trabajo cumpla con las condiciones establecidas en esta Licencia.
 
-Matrix Testing:
-```yaml
-jobs:
-  build:
-    runs-on: ubuntu-16.04
-    strategy:
-      matrix:
-        node: [ '10', '12' ]
-    name: Node ${{ matrix.node }} sample
-    steps:
-      - uses: actions/checkout@v2
-      - name: Setup node
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node }}
-      - run: npm install
-      - run: npm test
-```
-
-Architecture:
-
-You can use any of the [supported operating systems](https://docs.github.com/en/actions/reference/virtual-environments-for-github-hosted-runners), and the compatible `architecture` can be selected using `architecture`. Values are `x86`, `x64`, `arm64`, `armv6l`, `armv7l`, `ppc64le`, `s390x` (not all of the architectures are available on all platforms).
-
-When using `architecture`, `node-version` must be provided as well.
-```yaml
-jobs:
-  build:
-    runs-on: windows-latest
-    name: Node sample
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '12'
-          architecture: 'x64' # optional, x64 or x86. If not specified, x64 will be used by default
-      - run: npm install
-      - run: npm test
-```
-
-Multiple Operating Systems and Architectures:
-
-```yaml
-jobs:
-  build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os:
-          - ubuntu-latest
-          - macos-latest
-          - windows-latest
-        node_version:
-          - 10
-          - 12
-          - 14
-        architecture:
-          - x64
-        # an extra windows-x86 run:
-        include:
-          - os: windows-2016
-            node_version: 12
-            architecture: x86
-    name: Node ${{ matrix.node_version }} - ${{ matrix.architecture }} on ${{ matrix.os }}
-    steps:
-      - uses: actions/checkout@v2
-      - name: Setup node
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node_version }}
-          architecture: ${{ matrix.architecture }}
-      - run: npm install
-      - run: npm test
-```
-
-Publish to npmjs and GPR with npm:
-```yaml
-steps:
-- uses: actions/checkout@v2
-- uses: actions/setup-node@v2
-  with:
-    node-version: '10.x'
-    registry-url: 'https://registry.npmjs.org'
-- run: npm install
-- run: npm publish
-  env:
-    NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-- uses: actions/setup-node@v2
-  with:
-    registry-url: 'https://npm.pkg.github.com'
-- run: npm publish
-  env:
-    NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-```
-
-Publish to npmjs and GPR with yarn:
-```yaml
-steps:
-- uses: actions/checkout@v2
-- uses: actions/setup-node@v2
-  with:
-    node-version: '10.x'
-    registry-url: <registry url>
-- run: yarn install
-- run: yarn publish
-  env:
-    NODE_AUTH_TOKEN: ${{ secrets.YARN_TOKEN }}
-- uses: actions/setup-node@v2
-  with:
-    registry-url: 'https://npm.pkg.github.com'
-- run: yarn publish
-  env:
-    NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-```
-
-Use private packages:
-```yaml
-steps:
-- uses: actions/checkout@v2
-- uses: actions/setup-node@v2
-  with:
-    node-version: '10.x'
-    registry-url: 'https://registry.npmjs.org'
-# Skip post-install scripts here, as a malicious
-# script could steal NODE_AUTH_TOKEN.
-- run: npm install --ignore-scripts
-  env:
-    NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-# `npm rebuild` will run all those post-install scripts for us.
-- run: npm rebuild && npm run prepare --if-present
-```
-
-
-# License
-
-The scripts and documentation in this project are released under the [MIT License](LICENSE)
-
-# Contributions
-
-Contributions are welcome!  See [Contributor's Guide](docs/contributors.md)
-
-## Code of Conduct
-
-:wave: Be nice.  See [our code of conduct](CONDUCT)
+5. Presentación de Contribuciones. Salvo que Usted indique explícitamente lo contrario, cualquier Contribución que Usted envíe intencionalmente al Licenciante para su inclusión en la Obra se regirá por los términos y condiciones de esta Licencia, sin términos ni condiciones adicionales. No obstante lo anterior, nada de lo aquí dispuesto sustituirá ni modificará los términos de cualquier contrato de licencia independiente que usted haya firmado con el Licenciante en relación con dichas Contribuciones.
+6. Marcas comerciales. Esta Licencia no autoriza el uso de los nombres comerciales, marcas registradas, marcas de servicio ni nombres de productos del Licenciante, salvo que sea necesario para el uso razonable y habitual al describir el origen de la Obra y reproducir el contenido del archivo AVISO.
+7. Exención de garantía. Salvo que lo exija la legislación aplicable o se acuerde por escrito, el Licenciante proporciona la Obra (y cada Colaborador proporciona sus Contribuciones) "TAL CUAL", SIN GARANTÍAS NI CONDICIONES DE NINGÚN TIPO, ni expresas ni implícitas, incluyendo, entre otras, las garantías o condiciones de TÍTULO, NO INFRACCIÓN, COMERCIABILIDAD o IDONEIDAD PARA UN FIN DETERMINADO. Usted es el único responsable de determinar la idoneidad del uso o la redistribución de la Obra y asume cualquier riesgo asociado con el ejercicio de los permisos otorgados bajo esta Licencia.
+8. Limitación de responsabilidad. En ningún caso ni bajo ninguna teoría legal, ya sea por agravio (incluida la negligencia), contrato o de cualquier otra manera, a menos que lo exija la legislación aplicable (como actos deliberados y de negligencia grave) o se acuerde por escrito, ningún Colaborador será responsable ante Usted por daños, incluidos los daños directos, indirectos, especiales, incidentales o consecuentes de cualquier naturaleza que surjan como resultado de esta Licencia o del uso o la imposibilidad de usar la Obra (incluidos, entre otros, los daños por pérdida de prestigio, interrupción del trabajo, fallo o mal funcionamiento informático, o cualquier otro daño o pérdida comercial), incluso si dicho Colaborador ha sido advertido de la posibilidad de dichos daños.
+9. Aceptación de Garantía o Responsabilidad Adicional. Al redistribuir la Obra o sus Obras Derivadas, Usted podrá optar por ofrecer y cobrar una tarifa por la aceptación de soporte, garantía, indemnización u otras obligaciones y/o derechos de responsabilidad conforme a esta Licencia. Sin embargo, al aceptar dichas obligaciones, Usted actuará únicamente en su propio nombre y bajo su exclusiva responsabilidad, no en nombre de ningún otro Colaborador, y únicamente si acepta indemnizar, defender y eximir de responsabilidad a cada Colaborador por cualquier responsabilidad incurrida o reclamación presentada contra él por la aceptación de dicha garantía o responsabilidad adicional.
